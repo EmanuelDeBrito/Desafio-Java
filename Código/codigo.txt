@@ -1,0 +1,172 @@
+import java.util.Arrays;
+
+import javax.swing.JOptionPane;
+
+
+public class Main {
+
+  public static void main(String[] args) {
+
+    double notas[][] = new double[10][3];
+
+    inserirNotas(notas);
+
+    ordenarNotas(notas);
+
+    pesquisarNota(notas, 10);
+    
+    exibirEstatisticas(notas); 
+  }
+
+  public static void inserirNotas(double[][] notas){
+
+        for(int i = 0; i < notas.length; i++){
+            for(int j = 0; j < notas[i].length; j++){
+                double nota = Double.parseDouble(JOptionPane.showInputDialog("Digite a nota do " + (i + 1) + " aluno"));
+                notas[i][j] = nota;
+            }            
+        }
+
+  }
+
+  public static void ordenarNotas(double[][] notas){
+
+    double[] notasAluno = new double[3];
+
+    for(int i = 0; i < notas.length; i++){
+      for(int j = 0; j < notas[i].length; j++){
+        notasAluno[j] = notas[i][j];
+      }
+      Arrays.sort(notasAluno);
+      JOptionPane.showMessageDialog(null, "Notas ordenadas do " + (i + 1) + " aluno: " + Arrays.toString(notasAluno));
+    }
+    
+  }
+
+  public static void pesquisarNota(double[][] notas, double nota){
+
+    for(int i = 0; i < notas.length; i++){
+      for(int j = 0; j < notas[i].length; j++){
+        if(nota == notas[i][j]){
+          JOptionPane.showInternalMessageDialog(null, "Nota encontrada, aluno " + (i + 1) + " na disciplina " + (j + 1));
+          break;
+        }
+      }
+    }
+    
+  }
+
+  public static void calcularMediaAluno(double[][] notas){
+
+        double media = 0;
+        double[] medias = new double[10];
+
+        for(int i = 0; i < notas.length; i++){
+            for(int j = 0; j < notas[i].length; j++){
+                media = media + notas[i][j];
+            }
+            media = media / 3;
+            medias[i] = media;
+            media = 0;
+        }
+
+        for(int i = 0; i < medias.length; i++){
+            JOptionPane.showMessageDialog(null, "Media do " + (i + 1) + " aluno: " + medias[i]);
+        }
+    }
+
+  public static void calcularMediaTurma(double[][] notas){
+
+        double media = 0;
+        double mediaTotal = 0;
+        double[] medias = new double[10];
+
+        for(int i = 0; i < notas.length; i++){
+            for(int j = 0; j < notas[i].length; j++){
+                media = media + notas[i][j];
+            }
+            media = media / 3;
+            medias[i] = media;
+            media = 0;
+        }
+
+        for(int i = 0; i < medias.length; i++){
+            mediaTotal = mediaTotal + medias[i];
+        }
+
+        mediaTotal = mediaTotal / notas.length;
+
+        JOptionPane.showMessageDialog(null, "Média total da turma: " + mediaTotal);
+
+    }
+
+  public static void calcularMaiorNota(double[][] notas){
+
+        double[] maioresNotas = new double[3];
+        double maiorNota1 = 0;
+        double maiorNota2 = 0;
+        double maiorNota3 = 0;
+
+        for(int i = 0; i < notas.length; i++){
+            if(maiorNota1 < notas[i][0]){
+                maiorNota1 = notas[i][0];
+            }
+
+            if(maiorNota2 < notas[i][1]){
+                maiorNota2 = notas[i][1];
+            }
+
+            if(maiorNota3 < notas[i][2]){
+                maiorNota3 = notas[i][2];
+            }
+        }
+
+        maioresNotas[0] = maiorNota1;
+        maioresNotas[1] = maiorNota2;
+        maioresNotas[2] = maiorNota3;
+
+        for(int i = 0; i < maioresNotas.length; i++){
+            JOptionPane.showMessageDialog(null, "A maior nota da dicisplina " + (i + 1) + " é de: " + maioresNotas[i]);
+        }
+
+    }
+
+  public static void calcularMenorNota(double[][] notas){
+
+        double[] menoresNotas = new double[3];
+        double menorNota1 = 100;
+        double menorNota2 = 100;
+        double menorNota3 = 100;
+
+        for(int i = 0; i < notas.length; i++){
+            if(menorNota1 > notas[i][0]){
+                menorNota1 = notas[i][0];
+            }
+
+            if(menorNota2 > notas[i][1]){
+                menorNota2 = notas[i][1];
+            }
+
+            if(menorNota3 > notas[i][2]){
+                menorNota3 = notas[i][2];
+            }
+        }
+
+        menoresNotas[0] = menorNota1;
+        menoresNotas[1] = menorNota2;
+        menoresNotas[2] = menorNota3;
+
+        for(int i = 0; i < menoresNotas.length; i++){
+            JOptionPane.showMessageDialog(null, "A menor nota da dicisplina " + (i + 1) + " é de: " + menoresNotas[i]);
+        }
+
+    }
+
+  public static void exibirEstatisticas(double[][] notas){
+      calcularMediaAluno(notas);
+      calcularMediaTurma(notas);
+      calcularMaiorNota(notas);
+      calcularMenorNota(notas);
+  }
+
+}
