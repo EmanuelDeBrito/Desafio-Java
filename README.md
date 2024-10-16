@@ -1,5 +1,5 @@
-- Código fonte está na pasta código
-- Na pasta imagens há todas as fotos de cada método pedido
+*Código fonte está na pasta código
+*Na pasta imagens há todas as fotos de cada método pedido
 
 - Explicação de cada método
   Inserir notas -- Faz o preenchimento das notas de cada aluno, sendo que cada aluno tem três notas para serem atríbuidas
