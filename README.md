@@ -1,8 +1,8 @@
 
-# Código fonte está na pasta código 
-# Na pasta imagens há todas as fotos de cada método pedido
+### Código fonte está na pasta código 
+### Na pasta imagens há todas as fotos de cada método pedido
 
-# Explicação de cada método 
+### Explicação de cada método 
     Inserir notas -- Faz o preenchimento das notas de cada aluno, sendo que cada aluno tem três notas para serem atríbuidas. 
     Calcular Média Aluno -- Faz a soma de cada disciplina da linha que seriam as três notas do aluno e divide por três para cálculo da media, adiciona isso em vetor e depois mostra para o usuário a média de cada aluno 
     Calcular Média Turma -- Faz a mesma coisa que a média aluno só que com as médias armazenadas de cada aluno faz a soma das dez e divide por dez para o resultado da média da turma 
